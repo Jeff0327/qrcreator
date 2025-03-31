@@ -1,0 +1,27 @@
+{
+  "name": "무료 QR 코드 생성기",
+  "short_name": "QR 생성기",
+  "description": "회원가입 없이 무료로 QR 코드를 생성하세요.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icons/icon_128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+
+    {
+      "src": "/icons/icon_256.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,103 +1,116 @@
-import Image from "next/image";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import AdBanner from '@/components/AdBanner';
+import ClientSidebarAd from "@/components/ClientSidebarAd";
+
+// Dynamically import components with code splitting
+const QRCreator = dynamic(() => import('@/components/QRCreator'), {
+    loading: () => (
+        <div className="p-6 rounded-lg shadow-md mb-8 animate-pulse">
+            <div className="h-8 w-3/4 bg-muted rounded mb-4"></div>
+            <div className="h-10 w-full bg-muted rounded mb-6"></div>
+            <div className="h-10 w-32 bg-muted rounded"></div>
+        </div>
+    ),
+});
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <div className="min-h-screen bg-background">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <main className="container mx-auto px-4 py-8">
+                {/* Top ad banner */}
+                <Suspense fallback={<div className="ad-container skeleton" />}>
+                    <AdBanner />
+                </Suspense>
+
+                <div className="lg:flex lg:space-x-8">
+                    <div className="lg:w-3/4">
+                        <section className="mb-8">
+                            <h1 className="text-4xl font-bold mb-4">무료 QR 코드 생성기</h1>
+                            <h2 className="text-gray-800 text-2xl font-medium mb-4 text-muted-foreground">몇 초 만에 QR 코드 만들기</h2>
+                            <p className="text-lg mb-6">
+                                웹사이트, 텍스트, 연락처 등 다양한 정보를 담은 QR 코드를 무제한으로 생성하세요.
+                                회원가입 없이 쉽고 완전 무료로 사용 가능합니다.
+                            </p>
+                        </section>
+
+                        {/* QR Generator Component */}
+                        <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg" />}>
+                            <QRCreator />
+                        </Suspense>
+
+                        {/* Features Section */}
+                        <section id="features" className="mt-16 mb-8">
+                            <h2 className="text-3xl font-bold mb-6">주요 기능</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="p-6 border rounded-lg shadow-sm">
+                                    <div className="flex items-center mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <h3 className="text-xl font-semibold">다양한 QR 코드 유형</h3>
+                                    </div>
+                                    <p>URL, 텍스트, 전화번호, SMS 메시지 등 다양한 유형의 QR 코드를 생성할 수 있습니다.</p>
+                                </div>
+
+                                <div className="p-6 border rounded-lg shadow-sm">
+                                    <div className="flex items-center mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <h3 className="text-xl font-semibold">커스터마이징</h3>
+                                    </div>
+                                    <p>QR 코드의 색상을 변경하여 브랜드나 디자인에 맞게 맞춤 설정할 수 있습니다.</p>
+                                </div>
+
+                                <div className="p-6 border rounded-lg shadow-sm">
+                                    <div className="flex items-center mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <h3 className="text-xl font-semibold">저장 및 다운로드</h3>
+                                    </div>
+                                    <p>생성한 QR 코드를 로컬에 저장하고 PNG 이미지로 다운로드하여 프로젝트에 활용할 수 있습니다.</p>
+                                </div>
+
+                                <div className="p-6 border rounded-lg shadow-sm">
+                                    <div className="flex items-center mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <h3 className="text-xl font-semibold">회원가입 불필요</h3>
+                                    </div>
+                                    <p>계정 생성 없이 즉시 QR 코드를 생성하고 사용할 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    {/* Sidebar with ads */}
+                    <aside className="lg:w-1/4 mt-8 lg:mt-0">
+                        <div className="sticky top-4">
+                            <Suspense fallback={<div className="ad-container-sidebar skeleton" />}>
+                                <ClientSidebarAd />
+                            </Suspense>
+                        </div>
+                    </aside>
+                </div>
+            </main>
+
+            <footer className="bg-muted py-8 mt-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-col md:flex-row justify-between">
+                        <div className="mb-6 md:mb-0">
+                            <h2 className="text-xl font-bold mb-4">무료 QR 코드 생성기</h2>
+                            <p>무제한으로 무료 QR 코드를 생성하세요.</p>
+                        </div>
+                    </div>
+                    <div className="border-t border-border mt-6 pt-6 text-center">
+                        <p>&copy; {new Date().getFullYear()} QR 코드 생성기. 모든 권리 보유.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
