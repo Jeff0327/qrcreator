@@ -93,7 +93,7 @@ const AdBanner = () => {
                             minHeight: '90px'
                         }}
                         data-ad-client="ca-pub-1622427124321210"
-                        data-ad-slot="XXXXXXXXXX"
+                        data-ad-slot="7280737292"
                         data-ad-format="horizontal"
                         data-full-width-responsive="true"
                     ></ins>

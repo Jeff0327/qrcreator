@@ -64,6 +64,8 @@ export default function RootLayout({
         <html lang="ko">
         <head>
             <meta charSet="utf-8" />
+            {/* Google AdSense 계정 태그 */}
+            <meta name="google-adsense-account" content="ca-pub-1622427124321210" />
             {/* Google Search Console 인증 태그 */}
             <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION_ID" />
             {/* Naver 웹마스터 도구 인증 태그 */}
@@ -72,15 +74,15 @@ export default function RootLayout({
             {/* 구글 애널리틱스 스크립트 */}
             <Script
                 strategy="afterInteractive"
-                src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+                src="https://www.googletagmanager.com/gtag/js?id=G-DYPWY7ZV1C"
             />
             <Script id="google-analytics" strategy="afterInteractive">
                 {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-          `}
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-DYPWY7ZV1C');
+                `}
             </Script>
 
             {/* 구글 AdSense 스크립트 */}
