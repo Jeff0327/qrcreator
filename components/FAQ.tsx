@@ -18,10 +18,10 @@ const FAQ = () => {
                 <div className="p-4 border rounded-lg bg-card-bg shadow-sm">
                     <h3 className="text-xl font-semibold mb-2">How do I use a QR code?</h3>
                     <p>
-                        To use a QR code, simply open your smartphone camera and point it at the QR code. Most modern
+                        {`To use a QR code, simply open your smartphone camera and point it at the QR code. Most modern
                         smartphones will automatically detect the QR code and show a notification. Tap on this notification
                         to access the content. If your camera doesn't automatically scan QR codes, you may need to download
-                        a QR code scanner app.
+                        a QR code scanner app.`}
                     </p>
                 </div>
 
@@ -45,9 +45,9 @@ const FAQ = () => {
                 <div className="p-4 border rounded-lg bg-card-bg shadow-sm">
                     <h3 className="text-xl font-semibold mb-2">How long do the QR codes work?</h3>
                     <p>
-                        The QR codes you generate are static and will work indefinitely. Since they're downloaded directly
+                        {`The QR codes you generate are static and will work indefinitely. Since they're downloaded directly
                         to your device and don't rely on our servers, they'll continue to function as long as the information
-                        they link to (like a website) remains valid.
+                        they link to (like a website) remains valid.`}
                     </p>
                 </div>
 
@@ -60,7 +60,7 @@ const FAQ = () => {
                 </div>
 
                 <div className="p-4 border rounded-lg bg-card-bg shadow-sm">
-                    <h3 className="text-xl font-semibold mb-2">What's the best size for printing QR codes?</h3>
+                    <h3 className="text-xl font-semibold mb-2">{`What's the best size for printing QR codes?`}</h3>
                     <p>
                         For reliable scanning, we recommend printing QR codes at least 2 x 2 cm (0.8 x 0.8 inches) in size.
                         If the QR code will be scanned from a distance, make it larger. Always test your printed QR code

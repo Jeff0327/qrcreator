@@ -86,7 +86,7 @@ export default function RootLayout({
             {/* 구글 AdSense 스크립트 */}
             <Script
                 async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622427124321210"
                 strategy="afterInteractive"
                 crossOrigin="anonymous"
             />

@@ -2,6 +2,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
+declare global {
+    interface Window {
+        adsbygoogle: Array<Record<string, unknown>>;
+    }
+}
+
 const SidebarAd = () => {
     // 개발 환경인지 확인
     const [isDevelopment, setIsDevelopment] = useState(true);
@@ -19,7 +25,7 @@ const SidebarAd = () => {
             // AdSense 스크립트가 아직 로드되지 않은 경우에만 스크립트 추가
             if (!document.querySelector('script[src*="pagead2.googlesyndication.com"]')) {
                 const script = document.createElement('script');
-                script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
+                script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622427124321210';
                 script.async = true;
                 script.crossOrigin = 'anonymous';
                 document.head.appendChild(script);
@@ -74,7 +80,7 @@ const SidebarAd = () => {
                         <ins
                             className="adsbygoogle"
                             style={{ display: 'block', width: 'auto', height: '600px' }}
-                            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                            data-ad-client="ca-pub-1622427124321210"
                             data-ad-slot="XXXXXXXXXX"
                             data-ad-format="auto"
                         ></ins>
@@ -84,12 +90,5 @@ const SidebarAd = () => {
         </Card>
     );
 };
-
-// 전역 타입 정의
-declare global {
-    interface Window {
-        adsbygoogle: any[];
-    }
-}
 
 export default SidebarAd;

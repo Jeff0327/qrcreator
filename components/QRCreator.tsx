@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { DownloadIcon, TrashIcon, ShareIcon, QrCodeIcon, LinkIcon, TextIcon, PhoneIcon } from "lucide-react";
 import { MdSms } from "react-icons/md";
+import Image from "next/image";
 
 // QR 코드 항목 타입 정의
 interface QRCodeItem {
@@ -340,7 +341,7 @@ function QRCreator() {
                             {qrCode ? (
                                 <>
                                     <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
-                                        <img src={qrCode} alt="생성된 QR 코드" className="w-48 h-48" />
+                                        <Image src={qrCode} alt="생성된 QR 코드" className="w-48 h-48" />
                                     </div>
                                     <div className="flex space-x-2 w-full">
                                         <Button
@@ -416,11 +417,13 @@ function QRCreator() {
                                 {savedQRCodes.map((code) => (
                                     <Card key={code.id} className="overflow-hidden">
                                         <div className="bg-gray-50 dark:bg-gray-900 p-4 flex justify-center">
-                                            <img
+                                            <Image
                                                 src={code.imageUrl}
                                                 alt={`QR 코드: ${code.text}`}
                                                 className="w-32 h-32"
                                                 loading="lazy"
+                                                width={728}
+                                                height={90}
                                             />
                                         </div>
                                         <CardContent className="p-4">
