@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
+import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ["latin"] });
 
 // 별도의 viewport 설정
@@ -124,6 +124,7 @@ export default function RootLayout({
             }}
         />
         {children}
+        <Analytics />
         </body>
         </html>
     );
