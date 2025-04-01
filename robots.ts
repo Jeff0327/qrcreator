@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/private/', '/admin/'],
         },
-        sitemap: 'https://qrcode-generator.kr/sitemap.xml',
+        sitemap: 'https://qrmake.kr/sitemap.xml',
     };
 }

@@ -104,7 +104,7 @@ export default function RootLayout({
                     "@type": "WebApplication",
                     "name": "무료 QR 코드 생성기",
                     "description": "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
-                    "url": "https://qrcode-generator.kr",
+                    "url": "https://qrmake.kr",
                     "applicationCategory": "UtilityApplication",
                     "operatingSystem": "Any",
                     "offers": {
