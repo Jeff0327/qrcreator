@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
     keywords: "qr코드, qr코드 생성기, 무료 qr코드, qr코드 만들기, qr코드 다운로드, 온라인 qr코드 메이커",
     alternates: {
-        canonical: "https://qrcode-generator.kr",
+        canonical: "https://qrmake.kr",
     },
     openGraph: {
         title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기",
         description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
-        url: "https://qrcode-generator.kr",
+        url: "https://qrmake.kr",
         siteName: "무료 QR 코드 생성기",
         locale: "ko_KR",
         type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         },
     },
     category: "기술",
-    metadataBase: new URL("https://qrcode-generator.kr"),
+    metadataBase: new URL("https://qrmake.kr"),
     manifest: "/manifest.json",
     authors: [{ name: "QR 코드 생성기" }],
     creator: "QR 코드 생성기 Team",
@@ -67,7 +67,7 @@ export default function RootLayout({
             {/* Google AdSense 계정 태그 */}
             <meta name="google-adsense-account" content="ca-pub-1622427124321210" />
             {/* Google Search Console 인증 태그 */}
-            <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION_ID" />
+            <meta name="google-site-verification" content="j9HyeLmKhlQr_" />
             {/* Naver 웹마스터 도구 인증 태그 */}
             <meta name="naver-site-verification" content="YOUR_NAVER_SITE_VERIFICATION_ID" />
 
