@@ -69,7 +69,7 @@ export default function RootLayout({
             {/* Google Search Console 인증 태그 */}
             <meta name="google-site-verification" content="j9HyeLmKhlQr_" />
             {/* Naver 웹마스터 도구 인증 태그 */}
-            <meta name="naver-site-verification" content="YOUR_NAVER_SITE_VERIFICATION_ID" />
+            <meta name="naver-site-verification" content="48f26a171bfe01539897ff290ece5e8d75cd16ed" />
 
             {/* 구글 애널리틱스 스크립트 */}
             <Script
