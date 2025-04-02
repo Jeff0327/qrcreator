@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
     keywords: "qr코드, qr코드 생성기, 무료 qr코드, qr코드 만들기, qr코드 다운로드, 온라인 qr코드 메이커",
     alternates: {
-        canonical: "https://qrmake.kr",
+        canonical: "https://www.qrmake.kr",
     },
     openGraph: {
         title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기",
         description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
-        url: "https://qrmake.kr",
+        url: "https://www.qrmake.kr",
         siteName: "무료 QR 코드 생성기",
         locale: "ko_KR",
         type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         },
     },
     category: "기술",
-    metadataBase: new URL("https://qrmake.kr"),
+    metadataBase: new URL("https://www.qrmake.kr"),
     manifest: "/manifest.json",
     authors: [{ name: "QR 코드 생성기" }],
     creator: "QR 코드 생성기 Team",
@@ -104,7 +104,7 @@ export default function RootLayout({
                     "@type": "WebApplication",
                     "name": "무료 QR 코드 생성기",
                     "description": "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
-                    "url": "https://qrmake.kr",
+                    "url": "https://www.qrmake.kr",
                     "applicationCategory": "UtilityApplication",
                     "operatingSystem": "Any",
                     "offers": {

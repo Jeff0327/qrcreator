@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://qrmake.kr';
+    const baseUrl = 'https://www.qrmake.kr';
 
     return [
         {
