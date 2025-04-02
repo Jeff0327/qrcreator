@@ -81,7 +81,8 @@ const SidebarAd = () => {
                             style={{ display: 'block', width: 'auto', height: '600px' }}
                             data-ad-client="ca-pub-1622427124321210"
                             data-ad-slot="7280737292"
-                            data-ad-format="vertical"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"
                         ></ins>
                     </div>
                 )}
