@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-import AdBanner from '@/components/AdBanner';
 import ClientSidebarAd from "@/components/ClientSidebarAd";
 
 // Dynamically import components with code splitting
@@ -20,9 +19,9 @@ export default function Home() {
 
             <main className="container mx-auto px-4 py-8">
                 {/* Top ad banner */}
-                <Suspense fallback={<div className="ad-container skeleton" />}>
-                    <AdBanner />
-                </Suspense>
+                {/*<Suspense fallback={<div className="ad-container skeleton" />}>*/}
+                {/*    <AdBanner />*/}
+                {/*</Suspense>*/}
 
                 <div className="lg:flex lg:space-x-8">
                     <div className="lg:w-3/4">
