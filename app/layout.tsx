@@ -13,24 +13,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-    title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기",
-    description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
-    keywords: "qr코드, qr코드 생성기, 무료 qr코드, qr코드 만들기, qr코드 다운로드, 온라인 qr코드 메이커",
+    title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기 | Free QR Code Generator",
+    description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다. Create QR codes for free without registration. Generate and save QR codes instantly for URLs, text, phone numbers, SMS, and more.",
+    keywords: "qr코드, qr코드 생성기, 무료 qr코드, qr코드 만들기, qr코드 다운로드, 온라인 qr코드 메이커, qr코드 스캔, qr코드 생성 사이트, qr코드 만들기 무료, 무료 qr코드, qr코드 리더, qr코드 스캐너, qr코드 제작, qr코드 제조기, qr코드 앱, 온라인 qr코드, qr코드 이미지, qr코드 url, qr코드 저장, qr code, qr code generator, free qr code, create qr code, qr code maker, qr code download, online qr code creator, qr code scanner, generate qr code, qr code free, qr code reader, qr code online, qr code maker free, qr code app, qr code url, qr code image, custom qr code, dynamic qr code, scan qr code, qr code generator free",
     alternates: {
         canonical: "https://www.qrmake.kr",
     },
     openGraph: {
-        title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기",
-        description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
+        title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기 | Free QR Code Generator",
+        description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다. Create QR codes for free without registration.",
         url: "https://www.qrmake.kr",
-        siteName: "무료 QR 코드 생성기",
+        siteName: "무료 QR 코드 생성기 | Free QR Code Generator",
         locale: "ko_KR",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기",
-        description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다.",
+        title: "무료 QR 코드 생성기 - 쉽고 빠른 QR 코드 만들기 | Free QR Code Generator",
+        description: "회원가입 없이 무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등. Create QR codes for free without registration.",
     },
     robots: {
         index: true,
