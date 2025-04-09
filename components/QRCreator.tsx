@@ -8,9 +8,10 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { DownloadIcon, TrashIcon, ShareIcon, QrCodeIcon, LinkIcon, TextIcon, PhoneIcon } from "lucide-react";
+import { DownloadIcon, TrashIcon, ShareIcon, QrCodeIcon, LinkIcon, TextIcon, PhoneIcon, WifiIcon, MailIcon } from "lucide-react";
 import { MdSms } from "react-icons/md";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 // QR 코드 항목 타입 정의
 interface QRCodeItem {
@@ -22,6 +23,8 @@ interface QRCodeItem {
 }
 
 function QRCreator() {
+    const searchParams = useSearchParams();
+
     const [text, setText] = useState('');
     const [qrCode, setQrCode] = useState('');
     const [savedQRCodes, setSavedQRCodes] = useState<QRCodeItem[]>([]);
@@ -33,6 +36,29 @@ function QRCreator() {
     const [smsMessage, setSmsMessage] = useState('');
     const [qrForeground, setQrForeground] = useState('#000000');
     const [qrBackground, setQrBackground] = useState('#ffffff');
+
+
+    // WiFi QR 코드를 위한 상태 추가
+    const [wifiSSID, setWifiSSID] = useState('');
+    const [wifiPassword, setWifiPassword] = useState('');
+    const [wifiEncryption, setWifiEncryption] = useState('WPA');
+    const [wifiHidden, setWifiHidden] = useState(false);
+
+    // 이메일 QR 코드를 위한 상태 추가
+    const [emailAddress, setEmailAddress] = useState('');
+    const [emailSubject, setEmailSubject] = useState('');
+    const [emailBody, setEmailBody] = useState('');
+
+    // URL 파라미터로부터 QR 코드 유형 감지 및 탭 변경
+    useEffect(() => {
+        // URL 파라미터에서 type 값을 가져옴
+        const qrType = searchParams?.get('type');
+
+        // 유효한 값이 있으면 탭 변경
+        if (qrType && ['url', 'text', 'phone', 'sms', 'wifi', 'email'].includes(qrType)) {
+            setCurrentTab(qrType);
+        }
+    }, [searchParams]);
 
     // 컴포넌트가 마운트된 후에만 localStorage에 접근
     useEffect(() => {
@@ -69,10 +95,14 @@ function QRCreator() {
                 return `tel:${phoneNumber}`;
             case 'sms':
                 return `SMSTO:${smsNumber}:${smsMessage}`;
+            case 'wifi':
+                return `WIFI:T:${wifiEncryption};S:${wifiSSID};P:${wifiPassword};H:${wifiHidden ? 'true' : 'false'};;`;
+            case 'email':
+                return `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             default:
                 return text;
         }
-    }, [currentTab, text, phoneNumber, smsNumber, smsMessage]);
+    }, [currentTab, text, phoneNumber, smsNumber, smsMessage, wifiSSID, wifiPassword, wifiEncryption, wifiHidden, emailAddress, emailSubject, emailBody]);
 
     // QR 코드 생성 함수
     const generateQRCode = useCallback(async () => {
@@ -122,6 +152,13 @@ function QRCreator() {
         } else if (currentTab === 'sms') {
             setSmsNumber('');
             setSmsMessage('');
+        } else if (currentTab === 'wifi') {
+            setWifiSSID('');
+            setWifiPassword('');
+        } else if (currentTab === 'email') {
+            setEmailAddress('');
+            setEmailSubject('');
+            setEmailBody('');
         }
         setQrCode('');
     };
@@ -184,27 +221,35 @@ function QRCreator() {
                 <CardHeader>
                     <CardTitle className="text-2xl">QR 코드 생성기</CardTitle>
                     <CardDescription>
-                        URL, 텍스트, 전화번호 또는 SMS 메시지에 대한 QR 코드를 생성하세요.
+                        URL, 텍스트, 전화번호, SMS, WiFi, 이메일 등 다양한 정보에 대한 QR 코드를 생성하세요.
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Tabs defaultValue="url" value={currentTab} onValueChange={handleTabChange} className="w-full">
-                        <TabsList className="grid grid-cols-4 mb-6">
-                            <TabsTrigger value="url" className="flex items-center gap-2">
+                        <TabsList className="grid grid-cols-6 mb-6">
+                            <TabsTrigger value="url" className="flex items-center gap-2" data-value="url">
                                 <LinkIcon size={16} />
                                 <span className="hidden sm:inline">URL</span>
                             </TabsTrigger>
-                            <TabsTrigger value="text" className="flex items-center gap-2">
+                            <TabsTrigger value="text" className="flex items-center gap-2" data-value="text">
                                 <TextIcon size={16} />
                                 <span className="hidden sm:inline">텍스트</span>
                             </TabsTrigger>
-                            <TabsTrigger value="phone" className="flex items-center gap-2">
+                            <TabsTrigger value="phone" className="flex items-center gap-2" data-value="phone">
                                 <PhoneIcon size={16} />
                                 <span className="hidden sm:inline">전화</span>
                             </TabsTrigger>
-                            <TabsTrigger value="sms" className="flex items-center gap-2">
+                            <TabsTrigger value="sms" className="flex items-center gap-2" data-value="sms">
                                 <MdSms/>
                                 <span className="hidden sm:inline">SMS</span>
+                            </TabsTrigger>
+                            <TabsTrigger value="wifi" className="flex items-center gap-2" data-value="wifi">
+                                <WifiIcon size={16} />
+                                <span className="hidden sm:inline">WiFi</span>
+                            </TabsTrigger>
+                            <TabsTrigger value="email" className="flex items-center gap-2" data-value="email">
+                                <MailIcon size={16} />
+                                <span className="hidden sm:inline">이메일</span>
                             </TabsTrigger>
                         </TabsList>
 
@@ -274,6 +319,88 @@ function QRCreator() {
                                 </div>
                             </div>
                         </TabsContent>
+
+                        {/* WiFi QR 코드 탭 */}
+                        <TabsContent value="wifi" className="mt-0">
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="wifi-ssid-input">WiFi 네트워크 이름 (SSID)</Label>
+                                    <Input
+                                        id="wifi-ssid-input"
+                                        placeholder="네트워크 이름"
+                                        value={wifiSSID}
+                                        onChange={(e) => setWifiSSID(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="wifi-password-input">비밀번호</Label>
+                                    <Input
+                                        id="wifi-password-input"
+                                        type="password"
+                                        placeholder="WiFi 비밀번호"
+                                        value={wifiPassword}
+                                        onChange={(e) => setWifiPassword(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="wifi-encryption-input">암호화 유형</Label>
+                                    <select
+                                        id="wifi-encryption-input"
+                                        className="w-full p-2 border rounded"
+                                        value={wifiEncryption}
+                                        onChange={(e) => setWifiEncryption(e.target.value)}
+                                    >
+                                        <option value="WPA">WPA/WPA2/WPA3</option>
+                                        <option value="WEP">WEP</option>
+                                        <option value="nopass">암호 없음</option>
+                                    </select>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                    <input
+                                        type="checkbox"
+                                        id="wifi-hidden-input"
+                                        checked={wifiHidden}
+                                        onChange={(e) => setWifiHidden(e.target.checked)}
+                                    />
+                                    <Label htmlFor="wifi-hidden-input">숨겨진 네트워크</Label>
+                                </div>
+                            </div>
+                        </TabsContent>
+
+                        {/* 이메일 QR 코드 탭 */}
+                        <TabsContent value="email" className="mt-0">
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="email-address-input">이메일 주소</Label>
+                                    <Input
+                                        id="email-address-input"
+                                        type="email"
+                                        placeholder="recipient@example.com"
+                                        value={emailAddress}
+                                        onChange={(e) => setEmailAddress(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="email-subject-input">제목</Label>
+                                    <Input
+                                        id="email-subject-input"
+                                        placeholder="이메일 제목"
+                                        value={emailSubject}
+                                        onChange={(e) => setEmailSubject(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="email-body-input">내용</Label>
+                                    <Textarea
+                                        id="email-body-input"
+                                        placeholder="이메일 내용을 입력하세요..."
+                                        value={emailBody}
+                                        onChange={(e) => setEmailBody(e.target.value)}
+                                        rows={3}
+                                    />
+                                </div>
+                            </div>
+                        </TabsContent>
                     </Tabs>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -328,7 +455,9 @@ function QRCreator() {
                                         (currentTab === 'url' && !text) ||
                                         (currentTab === 'text' && !text) ||
                                         (currentTab === 'phone' && !phoneNumber) ||
-                                        (currentTab === 'sms' && (!smsNumber || !smsMessage))
+                                        (currentTab === 'sms' && (!smsNumber || !smsMessage)) ||
+                                        (currentTab === 'wifi' && !wifiSSID) ||
+                                        (currentTab === 'email' && !emailAddress)
                                     }
                                     className="w-full text-black"
                                 >
@@ -341,7 +470,7 @@ function QRCreator() {
                             {qrCode ? (
                                 <>
                                     <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
-                                        <Image src={qrCode} alt="생성된 QR 코드" className="w-48 h-48" />
+                                        <Image src={qrCode} alt="생성된 QR 코드" className="w-48 h-48" width={192} height={192} />
                                     </div>
                                     <div className="flex space-x-2 w-full">
                                         <Button
@@ -422,8 +551,8 @@ function QRCreator() {
                                                 alt={`QR 코드: ${code.text}`}
                                                 className="w-32 h-32"
                                                 loading="lazy"
-                                                width={728}
-                                                height={90}
+                                                width={128}
+                                                height={128}
                                             />
                                         </div>
                                         <CardContent className="p-4">
@@ -437,7 +566,9 @@ function QRCreator() {
                                                 <p className="text-xs text-gray-400 capitalize">
                                                     유형: {code.type === 'url' ? 'URL' :
                                                     code.type === 'text' ? '텍스트' :
-                                                        code.type === 'phone' ? '전화' : 'SMS'}
+                                                        code.type === 'phone' ? '전화' :
+                                                            code.type === 'sms' ? 'SMS' :
+                                                                code.type === 'wifi' ? 'WiFi' : '이메일'}
                                                 </p>
                                             </div>
                                         </CardContent>
