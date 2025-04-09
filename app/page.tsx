@@ -1,6 +1,9 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import ClientSidebarAd from "@/components/ClientSidebarAd";
+import Image from "next/image";
+import PromotionalPopup from "@/components/PromotionalPopup";
+
 
 // Dynamically import components with code splitting
 const QRCreator = dynamic(() => import('@/components/QRCreator'), {
@@ -16,8 +19,11 @@ const QRCreator = dynamic(() => import('@/components/QRCreator'), {
 export default function Home() {
     return (
         <div className="min-h-screen bg-background">
+            <Suspense fallback={null}>
+                <PromotionalPopup />
+            </Suspense>
 
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto px-4 py-8 mt-12">
                 {/* Top ad banner */}
                 {/*<Suspense fallback={<div className="ad-container skeleton" />}>*/}
                 {/*    <AdBanner />*/}
@@ -27,7 +33,8 @@ export default function Home() {
                     <div className="lg:w-3/4">
                         <section className="mb-8">
                             <h1 className="text-4xl font-bold mb-4">무료 QR 코드 생성기</h1>
-                            <h2 className="text-gray-800 text-2xl font-medium mb-4 text-muted-foreground">몇 초 만에 QR 코드 만들기</h2>
+                            <h2 className="text-gray-800 text-2xl font-medium mb-4 text-muted-foreground">몇 초 만에 QR 코드
+                                만들기</h2>
                             <p className="text-lg mb-6">
                                 웹사이트, 텍스트, 연락처 등 다양한 정보를 담은 QR 코드를 무제한으로 생성하세요.
                                 회원가입 없이 쉽고 완전 무료로 사용 가능합니다.
@@ -35,8 +42,8 @@ export default function Home() {
                         </section>
 
                         {/* QR Generator Component */}
-                        <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg" />}>
-                            <QRCreator />
+                        <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg"/>}>
+                            <QRCreator/>
                         </Suspense>
 
                         {/* Features Section */}
@@ -45,8 +52,10 @@ export default function Home() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="p-6 border rounded-lg shadow-sm">
                                     <div className="flex items-center mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2"
+                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <h3 className="text-xl font-semibold">다양한 QR 코드 유형</h3>
                                     </div>
@@ -55,8 +64,10 @@ export default function Home() {
 
                                 <div className="p-6 border rounded-lg shadow-sm">
                                     <div className="flex items-center mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2"
+                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <h3 className="text-xl font-semibold">커스터마이징</h3>
                                     </div>
@@ -65,8 +76,10 @@ export default function Home() {
 
                                 <div className="p-6 border rounded-lg shadow-sm">
                                     <div className="flex items-center mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2"
+                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <h3 className="text-xl font-semibold">저장 및 다운로드</h3>
                                     </div>
@@ -75,12 +88,55 @@ export default function Home() {
 
                                 <div className="p-6 border rounded-lg shadow-sm">
                                     <div className="flex items-center mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-2"
+                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <h3 className="text-xl font-semibold">회원가입 불필요</h3>
                                     </div>
                                     <p>계정 생성 없이 즉시 QR 코드를 생성하고 사용할 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h2 className="text-3xl font-bold mb-6">이렇게 사용해보세요.</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <div className="flex flex-col items-center">
+                                    <h3 className="text-xl mb-2">전단지</h3>
+                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg">
+                                        <Image
+                                            src="/samples/sample_1.jpg"
+                                            alt="전단지 예시"
+                                            width={500}
+                                            height={500}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <h3 className="text-xl mb-2">명함</h3>
+                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg">
+                                        <Image
+                                            src="/samples/sample_2.jpg"
+                                            alt="명함 예시"
+                                            width={500}
+                                            height={500}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <h3 className="text-xl mb-2">포스터</h3>
+                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg">
+                                        <Image
+                                            src="/samples/sample_3.jpg"
+                                            alt="포스터 예시"
+                                            width={500}
+                                            height={500}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -89,8 +145,8 @@ export default function Home() {
                     {/* Sidebar with ads */}
                     <aside className="lg:w-1/4 mt-8 lg:mt-0">
                         <div className="sticky top-4">
-                            <Suspense fallback={<div className="ad-container-sidebar skeleton" />}>
-                                <ClientSidebarAd />
+                            <Suspense fallback={<div className="ad-container-sidebar skeleton"/>}>
+                                <ClientSidebarAd/>
                             </Suspense>
                         </div>
                     </aside>
