@@ -57,8 +57,7 @@ const SidebarAd = () => {
                 {isDevelopment ? (
                     // 개발 환경 - 플레이스홀더
                     <div
-                        className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-gray-500"
-                        style={{ width: 'auto', height: '600px' }}
+                        className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-gray-500 w-auto h-[200px] lg:h-[400px] xl:h-[600px]"
                     >
                         <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-gray-200">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +73,7 @@ const SidebarAd = () => {
                     // 프로덕션 환경 - 실제 AdSense 광고
                     <div
                         ref={adContainerRef}
-                        style={{ width: 'auto', height: '600px' }}
+                        className={'w-auto h-[200px] lg:h-[400px] xl:h-[600px]'}
                     >
                         <ins
                             className="adsbygoogle"
