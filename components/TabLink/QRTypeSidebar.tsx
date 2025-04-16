@@ -23,7 +23,7 @@ export default function QRTypeSidebar() {
     };
 
     return (
-        <div className="mt-8 p-4 border rounded-lg">
+        <div className="p-4 border rounded-lg">
             <h3 className="text-lg font-bold mb-4">인기 QR 코드 유형</h3>
             <div className="space-y-2">
                 <Button

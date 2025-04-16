@@ -304,14 +304,13 @@ export default function Home() {
 
                     {/* Sidebar with ads */}
                     <aside className="lg:w-1/4 mt-8 lg:mt-0">
-                        <div className="sticky top-4">
+                        <div className="grid grid-cols-2 xl:grid-cols-1 gap-2 xl:flex-col xl:w-60 w-full">
+                            {/* 인기 QR 코드 유형 사이드바 추가 - 클라이언트 컴포넌트로 분리 */}
+                            <Suspense fallback={<div className="bg-muted animate-pulse rounded-lg mt-0 xl:mt-8"/>}>
+                                <QRTypeSidebar />
+                            </Suspense>
                             <Suspense fallback={<div className="ad-container-sidebar skeleton"/>}>
                                 <ClientSidebarAd/>
-                            </Suspense>
-
-                            {/* 인기 QR 코드 유형 사이드바 추가 - 클라이언트 컴포넌트로 분리 */}
-                            <Suspense fallback={<div className="h-80 bg-muted animate-pulse rounded-lg mt-8"/>}>
-                                <QRTypeSidebar />
                             </Suspense>
                         </div>
                     </aside>
