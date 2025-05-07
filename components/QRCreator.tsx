@@ -466,7 +466,7 @@ function QRCreator() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col items-center justify-center border rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                        <div className="flex flex-col items-center justify-center border rounded-lg p-4 bg-gray-50">
                             {qrCode ? (
                                 <>
                                     <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
@@ -505,7 +505,7 @@ function QRCreator() {
                                 </>
                             ) : (
                                 <div className="flex flex-col items-center justify-center h-64 text-center">
-                                    <QrCodeIcon size={48} className="text-gray-300 mb-4" />
+                                    <QrCodeIcon size={48} className="text-gray-300  mb-4" />
                                     <p className="text-gray-500">QR 코드가 여기에 표시됩니다</p>
                                     <p className="text-gray-400 text-sm mt-2">양식을 작성하고 생성 버튼을 클릭하세요</p>
                                 </div>

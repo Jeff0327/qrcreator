@@ -1,12 +1,13 @@
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import {Suspense} from 'react';
 import ClientSidebarAd from "@/components/ClientSidebarAd";
 import Image from "next/image";
-import PromotionalPopup from "@/components/PromotionalPopup";
 import Link from "next/link";
 import Script from "next/script";
 import QRTypeSidebar from "@/components/TabLink/QRTypeSidebar";
 import QRFooterLinks from "@/components/TabLink/QRFooterLinks";
+import QRStatistics from "@/components/QRStatistics";
+import TitleSection from "@/components/aos/TitleSection";
 
 // Dynamically import components with code splitting
 const QRCreator = dynamic(() => import('@/components/QRCreator'), {
@@ -22,9 +23,6 @@ const QRCreator = dynamic(() => import('@/components/QRCreator'), {
 export default function Home() {
     return (
         <div className="min-h-screen bg-background">
-            <Suspense fallback={null}>
-                <PromotionalPopup />
-            </Suspense>
 
             {/* Schema.org FAQ 구조화 데이터 */}
             <Script
@@ -80,26 +78,18 @@ export default function Home() {
                 }}
             />
 
-            <main className="container mx-auto px-4 py-8 mt-12">
-                {/* Top ad banner */}
-                {/*<Suspense fallback={<div className="ad-container skeleton" />}>*/}
-                {/*    <AdBanner />*/}
-                {/*</Suspense>*/}
-
+            <main className="container mx-auto px-4 py-8 mt-0 xl:mt-12">
                 <div className="lg:flex lg:space-x-8">
                     <div className="lg:w-3/4">
-                        <section className="mb-8">
-                            <h1 className="text-4xl font-bold mb-4">무료 QR 코드 생성기 | Free QR Code Generator</h1>
-                            <h2 className="text-gray-800 text-2xl font-medium mb-4 text-muted-foreground">몇 초 만에 QR 코드 만들기 - Create QR Codes in Seconds</h2>
-                            <p className="text-lg mb-6">
-                                웹사이트, 텍스트, 연락처 등 다양한 정보를 담은 QR 코드를 무제한으로 생성하세요.
-                                회원가입 없이 쉽고 완전 무료로 사용 가능합니다. 생성된 QR 코드는 스마트폰으로 스캔하여 바로 사용할 수 있습니다.
-                            </p>
-                            <p className="text-base mb-6">
-                                Create unlimited QR codes for websites, text, contact information, and more.
-                                No registration required - completely free and easy to use. Scan generated QR codes with any smartphone camera.
-                            </p>
-                        </section>
+                        <div className={'flex flex-col lg:flex-row justify-between items-center gap-4 mb-2 lg:mb-8'}>
+                            <div className={'w-auto xl:w-1/2 h-80 rounded-xl'}>
+                                <Image src={'/banner/QRbanner.png'} alt={'mainBanner'} width={1000} height={1000} className={'rounded-lg w-full h-full object-contain xl:object-cover'}/>
+                            </div>
+                            <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg"/>}>
+                                <TitleSection/>
+                            </Suspense>
+
+                        </div>
 
                         {/* QR Generator Component */}
                         <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg"/>}>
@@ -167,7 +157,8 @@ export default function Home() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <article className="flex flex-col items-center">
                                     <h3 className="text-xl mb-2">전단지 | Flyers</h3>
-                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
+                                    <div
+                                        className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
                                         <Image
                                             src="/samples/sample_1.jpg"
                                             alt="전단지에 사용된 QR 코드 예시 - QR code on a flyer example"
@@ -180,7 +171,8 @@ export default function Home() {
                                 </article>
                                 <article className="flex flex-col items-center">
                                     <h3 className="text-xl mb-2">명함 | Business Cards</h3>
-                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
+                                    <div
+                                        className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
                                         <Image
                                             src="/samples/sample_2.jpg"
                                             alt="명함에 사용된 QR 코드 예시 - QR code on a business card example"
@@ -193,7 +185,8 @@ export default function Home() {
                                 </article>
                                 <article className="flex flex-col items-center">
                                     <h3 className="text-xl mb-2">포스터 | Posters</h3>
-                                    <div className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
+                                    <div
+                                        className="aspect-square w-[400px] md:w-[300px] lg:w-full overflow-hidden rounded-lg my-12 md:my-6">
                                         <Image
                                             src="/samples/sample_3.jpg"
                                             alt="포스터에 사용된 QR 코드 예시 - QR code on a poster example"
@@ -202,22 +195,26 @@ export default function Home() {
                                             className="object-cover w-full h-full"
                                         />
                                     </div>
-                                    <p className="mt-2 text-center">이벤트 포스터에 QR 코드를 추가하여 온라인 티켓 판매나 상세 정보 페이지로 연결하세요.</p>
+                                    <p className="mt-2 text-center">이벤트 포스터에 QR 코드를 추가하여 온라인 티켓 판매나 상세 정보 페이지로
+                                        연결하세요.</p>
                                 </article>
                             </div>
                         </section>
 
                         {/* QR 코드 정보 섹션 추가 */}
                         <section id="qr-info" className="mt-16 mb-8" aria-labelledby="qr-info-heading">
-                            <h2 id="qr-info-heading" className="text-3xl font-bold mb-6">QR 코드란? | What is a QR Code?</h2>
+                            <h2 id="qr-info-heading" className="text-3xl font-bold mb-6">QR 코드란? | What is a QR
+                                Code?</h2>
                             <div className="bg-muted/50 p-6 rounded-lg">
                                 <p className="mb-4">
                                     QR 코드(Quick Response Code)는 1994년 일본의 덴소 웨이브(Denso Wave)에서 개발한 2차원 바코드입니다.
                                     기존 바코드보다 훨씬 많은 정보를 담을 수 있으며, 스마트폰 카메라로 빠르게 스캔할 수 있는 특징이 있습니다.
                                 </p>
                                 <p className="mb-4">
-                                    QR codes (Quick Response Codes) are two-dimensional barcodes that can store various types of information.
-                                    When scanned with a smartphone camera, they quickly connect users to websites, display text, share contact information, and more.
+                                    QR codes (Quick Response Codes) are two-dimensional barcodes that can store various
+                                    types of information.
+                                    When scanned with a smartphone camera, they quickly connect users to websites,
+                                    display text, share contact information, and more.
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                                     <div>
@@ -254,27 +251,36 @@ export default function Home() {
                                     </div>
                                 </details>
                                 <details className="p-4 border rounded-lg">
-                                    <summary className="font-semibold text-lg cursor-pointer">어떤 종류의 QR 코드를 만들 수 있나요?</summary>
+                                    <summary className="font-semibold text-lg cursor-pointer">어떤 종류의 QR 코드를 만들 수 있나요?
+                                    </summary>
                                     <div className="mt-2 pl-4">
                                         <p>URL, 텍스트, 전화번호, SMS, 이메일, WiFi, 위치 정보 등 다양한 형식의 QR 코드를 생성할 수 있습니다.</p>
                                     </div>
                                 </details>
                                 <details className="p-4 border rounded-lg">
-                                    <summary className="font-semibold text-lg cursor-pointer">생성된 QR 코드는 얼마나 오래 사용할 수 있나요?</summary>
+                                    <summary className="font-semibold text-lg cursor-pointer">생성된 QR 코드는 얼마나 오래 사용할 수
+                                        있나요?
+                                    </summary>
                                     <div className="mt-2 pl-4">
                                         <p>저희 서비스로 생성한 QR 코드는 영구적으로 사용 가능합니다. 다운로드한 QR 코드는 만료 기간이 없으며 계속해서 스캔 가능합니다.</p>
                                     </div>
                                 </details>
                                 <details className="p-4 border rounded-lg">
-                                    <summary className="font-semibold text-lg cursor-pointer">QR 코드를 스캔하려면 어떤 앱이 필요한가요?</summary>
+                                    <summary className="font-semibold text-lg cursor-pointer">QR 코드를 스캔하려면 어떤 앱이
+                                        필요한가요?
+                                    </summary>
                                     <div className="mt-2 pl-4">
-                                        <p>대부분의 최신 스마트폰은 기본 카메라 앱으로 QR 코드 스캔이 가능합니다. 별도의 QR 코드 스캐너 앱도 앱스토어에서 무료로 다운로드할 수 있습니다.</p>
+                                        <p>대부분의 최신 스마트폰은 기본 카메라 앱으로 QR 코드 스캔이 가능합니다. 별도의 QR 코드 스캐너 앱도 앱스토어에서 무료로 다운로드할 수
+                                            있습니다.</p>
                                     </div>
                                 </details>
                                 <details className="p-4 border rounded-lg">
-                                    <summary className="font-semibold text-lg cursor-pointer">Is this QR code generator free to use?</summary>
+                                    <summary className="font-semibold text-lg cursor-pointer">Is this QR code generator
+                                        free to use?
+                                    </summary>
                                     <div className="mt-2 pl-4">
-                                        <p>Yes, our QR code generator is completely free to use with no limitations. You can create unlimited QR codes without registration or payment.</p>
+                                        <p>Yes, our QR code generator is completely free to use with no limitations. You
+                                            can create unlimited QR codes without registration or payment.</p>
                                     </div>
                                 </details>
                             </div>
@@ -307,8 +313,9 @@ export default function Home() {
                         <div className="grid grid-cols-1 xl:grid-cols-1 gap-2 xl:flex-col xl:w-60 w-full">
                             {/* 인기 QR 코드 유형 사이드바 추가 - 클라이언트 컴포넌트로 분리 */}
                             <Suspense fallback={<div className="bg-muted animate-pulse rounded-lg mt-0 xl:mt-8"/>}>
-                                <QRTypeSidebar />
+                                <QRTypeSidebar/>
                             </Suspense>
+                            <QRStatistics/>
                             <Suspense fallback={<div className="ad-container-sidebar skeleton"/>}>
                                 <ClientSidebarAd/>
                             </Suspense>
@@ -324,10 +331,9 @@ export default function Home() {
                             <h2 className="text-xl font-bold mb-4">무료 QR 코드 생성기 | Free QR Code Generator</h2>
                             <p>무제한으로 무료 QR 코드를 생성하세요. Create unlimited free QR codes.</p>
                         </div>
-
                         {/* 푸터 네비게이션 추가 - 클라이언트 컴포넌트로 분리 */}
                         <Suspense fallback={<div className="h-40 w-full md:w-1/2 bg-muted animate-pulse rounded-lg"/>}>
-                            <QRFooterLinks />
+                            <QRFooterLinks/>
                         </Suspense>
                     </div>
                     <div className="border-t border-border mt-6 pt-6 text-center">
