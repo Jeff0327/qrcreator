@@ -1,13 +1,12 @@
 import type {Metadata, Viewport} from "next";
-import {Inter} from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
+import "./styles/globals.css";
 import {Analytics} from '@vercel/analytics/react';
 
-const inter = Inter({subsets: ["latin"]});
-
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.qrmake.kr'), title: "무료 QR코드", description: "무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다. Create QR codes for free without registration. Generate and save QR codes instantly for URLs, text, phone numbers, SMS, and more.",
+    metadataBase: new URL('https://www.qrmake.kr'),
+    title: "무료 QR코드",
+    description: "무료로 QR 코드를 생성하세요. URL, 텍스트, 전화번호, SMS 등 다양한 정보를 담은 QR 코드를 즉시 만들고 저장할 수 있습니다. Create QR codes for free without registration. Generate and save QR codes instantly for URLs, text, phone numbers, SMS, and more.",
     keywords: "QR, qr코드, qr코드 생성기, 무료 qr코드, qr코드 만들기, qr코드 다운로드, 온라인 qr코드 메이커, qr코드 스캔, qr코드 생성 사이트, qr코드 만들기 무료, 무료 qr코드, QR코드, qr코드 리더, qr코드 스캐너, qr코드 제작, qr코드 제조기, qr코드 앱, 온라인 qr코드, qr코드 이미지, qr코드 url, qr코드 저장,QR, QR Generator,google, naver,네이버 QR,QR 네이버, qr code, qr code generator, free qr code, create qr code, qr code maker, qr code download, online qr code creator, qr code scanner, generate qr code, qr code free, qr code reader, qr code online, qr code maker free, qr code app, qr code url, qr code image, custom qr code, dynamic qr code, scan qr code, qr code generator free",
     alternates: {
         canonical: "https://www.qrmake.kr",
@@ -62,6 +61,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
         <head>
+            <title>QR 코드 생성기</title>
             <meta charSet="utf-8"/>
             {/* Google AdSense 계정 태그 */}
             <meta name="google-adsense-account" content="ca-pub-1622427124321210"/>
@@ -92,7 +92,7 @@ export default function RootLayout({
                 crossOrigin="anonymous"
             />
         </head>
-        <body className={inter.className}>
+        <body>
         {/* 구조화된 데이터 */}
         <Script
             id="schema-org"
@@ -122,7 +122,7 @@ export default function RootLayout({
                 }),
             }}
         />
-        {children}
+            {children}
         <Analytics/>
         </body>
         </html>

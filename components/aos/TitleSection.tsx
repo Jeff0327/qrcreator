@@ -13,7 +13,7 @@ function TitleSection() {
         <>
             {/* SEO 관련 메타 정보 설정 */}
             <Head>
-                <title>무료 QR 코드 생성기 | Free QR Code Generator</title>
+                <title>무료 QR 코드</title>
                 <meta
                     name="description"
                     content="웹사이트, 텍스트, 연락처 등 다양한 정보를 담은 QR 코드를 무료로 쉽고 빠르게 생성하세요. 회원가입 없이 바로 사용 가능합니다."
@@ -23,18 +23,25 @@ function TitleSection() {
             {/* 실제 콘텐츠 섹션 */}
             <section className="w-full lg:w-1/2" data-aos="fade-up">
                 <h1
-                    className="text-2xl xl:text-3xl font-bold mb-2 xl:mb-4"
+                    className="text-2xl xl:text-3xl font-RiaSans"
                     data-aos="fade-right"
                     data-aos-delay="100"
                 >
-                    무료 QR 코드 생성기 <br /> Free QR Code Generator
+                    무료 QR 코드 생성기
+                </h1>
+                <h1
+                    className="text-2xl xl:text-3xl font-RiaSans mb-2 xl:mb-4"
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                >
+                    Free QR Code Generator
                 </h1>
                 <h2
                     className="text-gray-800 text-md xl:text-2xl font-medium mb-4 text-muted-foreground"
                     data-aos="fade-left"
                     data-aos-delay="200"
                 >
-                    몇 초 만에 QR 코드 만들기 <br /> Create QR Codes in Seconds
+                    몇 초 만에 QR 코드 만들기 <br/> Create QR Codes in Seconds
                 </h2>
                 <p
                     className="text-sm lg:text-md xl:text-lg mb-2 xl:mb-6"

@@ -7,10 +7,11 @@ import Script from "next/script";
 import QRTypeSidebar from "@/components/TabLink/QRTypeSidebar";
 import QRFooterLinks from "@/components/TabLink/QRFooterLinks";
 import QRStatistics from "@/components/QRStatistics";
-import TitleSection from "@/components/aos/TitleSection";
-import FeatureSection from "@/components/aos/FeatureSection";
-import CaseSection from "@/components/aos/CaseSection";
-import InfomationSection from "@/components/aos/InfomationSection";
+
+const TitleSection = dynamic(() => import('@/components/aos/TitleSection'));
+const FeatureSection = dynamic(() => import('@/components/aos/FeatureSection'));
+const CaseSection = dynamic(() => import('@/components/aos/CaseSection'));
+const InfomationSection = dynamic(() => import('@/components/aos/InfomationSection'));
 
 // Dynamically import components with code splitting
 const QRCreator = dynamic(() => import('@/components/QRCreator'), {
@@ -86,7 +87,8 @@ export default function Home() {
                     <div className="lg:w-3/4">
                         <div className={'flex flex-col lg:flex-row justify-between items-center gap-4 mb-2 lg:mb-8'}>
                             <div className={'w-auto xl:w-1/2 h-80 rounded-xl'}>
-                                <Image src={'/banner/QRbanner.png'} alt={'mainBanner'} width={1000} height={1000} className={'rounded-lg w-full h-full object-contain xl:object-cover'}/>
+                                <Image src={'/banner/QRbanner.png'} alt={'mainBanner'} width={1000} height={1000}
+                                       className={'rounded-lg w-full h-full object-contain xl:object-cover'}/>
                             </div>
                             <Suspense fallback={<div className="h-96 bg-muted animate-pulse rounded-lg"/>}>
                                 <TitleSection/>

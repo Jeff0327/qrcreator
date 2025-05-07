@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { DownloadIcon, TrashIcon, ShareIcon, QrCodeIcon, LinkIcon, TextIcon, PhoneIcon, WifiIcon, MailIcon } from "lucide-react";
+import { DownloadIcon, TrashIcon, ShareIcon, QrCodeIcon, LinkIcon, PhoneIcon, WifiIcon, MailIcon } from "lucide-react";
+import { RxText } from "react-icons/rx";
 import { MdSms } from "react-icons/md";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -231,8 +232,8 @@ function QRCreator() {
                                 <LinkIcon size={16} />
                                 <span className="hidden sm:inline">URL</span>
                             </TabsTrigger>
-                            <TabsTrigger value="text" className="flex items-center gap-2" data-value="text">
-                                <TextIcon size={16} />
+                            <TabsTrigger value="text" className="flex items-center gap-1" data-value="text">
+                                <RxText size={18}/>
                                 <span className="hidden sm:inline">텍스트</span>
                             </TabsTrigger>
                             <TabsTrigger value="phone" className="flex items-center gap-2" data-value="phone">

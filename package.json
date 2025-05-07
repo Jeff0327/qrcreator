@@ -37,18 +37,17 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
     "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
