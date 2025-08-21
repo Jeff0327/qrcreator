@@ -127,13 +127,13 @@ export default function QRTemplatesGallery() {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "홈",
-                    "item": "https://qrmake.co.kr"
+                    "item": "https://qrmake.kr"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "QR 코드 템플릿 갤러리",
-                    "item": "https://qrmake.co.kr/templates"
+                    "item": "https://qrmake.kr/templates"
                 }
             ]
         }
@@ -164,10 +164,9 @@ export default function QRTemplatesGallery() {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="QR 코드 템플릿 갤러리 - 무료 디자인 모음 | QR Make" />
                 <meta property="og:description" content="다양한 용도별 QR 코드 템플릿을 무료로 다운로드하세요. 레스토랑, WiFi, 소셜미디어, 이벤트 등 50+ 디자인 제공." />
-                <meta property="og:image" content="https://qrmake.co.kr/images/qr-templates-gallery.jpg" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
-                <meta property="og:url" content="https://qrmake.co.kr/templates" />
+                <meta property="og:url" content="https://qrmake.kr/templates" />
                 <meta property="og:site_name" content="QR Make" />
                 <meta property="og:locale" content="ko_KR" />
 
@@ -179,7 +178,7 @@ export default function QRTemplatesGallery() {
                 <meta name="twitter:site" content="@qrmake" />
 
                 {/* 캐노니컬 URL */}
-                <link rel="canonical" href="https://qrmake.co.kr/templates" />
+                <link rel="canonical" href="https://qrmake.kr/templates" />
 
                 {/* 대체 언어 */}
                 <link rel="alternate" hrefLang="ko" href="https://qrmake.kr/templates" />

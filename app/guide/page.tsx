@@ -105,10 +105,9 @@ export default function QRUsageGuide() {
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content="QR 코드 사용 가이드 - 효과적인 활용법 완전 정리" />
                 <meta property="og:description" content="QR 코드를 효과적으로 활용하는 방법, 비즈니스 모범 사례, 마케팅 전략, 보안 고려사항을 상세히 알아보세요." />
-                <meta property="og:image" content="https://qrmake.co.kr/images/qr-usage-guide-og.jpg" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
-                <meta property="og:url" content="https://qrmake.co.kr/guide" />
+                <meta property="og:url" content="https://qrmake.kr/guide" />
                 <meta property="og:site_name" content="QR Make" />
                 <meta property="og:locale" content="ko_KR" />
                 <meta property="article:author" content="QR Make" />
@@ -121,16 +120,15 @@ export default function QRUsageGuide() {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="QR 코드 사용 가이드 - 효과적인 활용법 완전 정리" />
                 <meta name="twitter:description" content="QR 코드를 효과적으로 활용하는 방법, 비즈니스 모범 사례, 마케팅 전략, 보안 고려사항을 상세히 알아보세요." />
-                <meta name="twitter:image" content="https://qrmake.co.kr/images/qr-usage-guide-og.jpg" />
                 <meta name="twitter:site" content="@qrmake" />
 
                 {/* 캐노니컬 URL */}
-                <link rel="canonical" href="https://qrmake.co.kr/guide" />
+                <link rel="canonical" href="https://qrmake.kr/guide" />
 
                 {/* 대체 언어 */}
-                <link rel="alternate" hrefLang="ko" href="https://qrmake.co.kr/guide" />
-                <link rel="alternate" hrefLang="en" href="https://qrmake.co.kr/en/guide" />
-                <link rel="alternate" hrefLang="x-default" href="https://qrmake.co.kr/guide" />
+                <link rel="alternate" hrefLang="ko" href="https://qrmake.kr/guide" />
+                <link rel="alternate" hrefLang="en" href="https://qrmake.kr/guide" />
+                <link rel="alternate" hrefLang="x-default" href="https://qrmake.kr/guide" />
 
                 {/* 파비콘 */}
                 <link rel="icon" href="/favicon.ico" />
