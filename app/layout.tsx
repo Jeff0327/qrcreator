@@ -1,7 +1,9 @@
+// app/layout.tsx - 완전 반응형 레이아웃
 import type {Metadata, Viewport} from "next";
 import Script from "next/script";
 import "./styles/globals.css";
 import {Analytics} from '@vercel/analytics/react';
+import Sidebar from "@/components/layout/SideMenubar";
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.qrmake.kr'),
@@ -45,13 +47,12 @@ export const metadata: Metadata = {
         email: true,
     },
 };
-// 별도의 viewport 설정
+
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
     themeColor: "#3b82f6",
 };
-
 
 export default function RootLayout({
                                        children,
@@ -63,14 +64,10 @@ export default function RootLayout({
         <head>
             <title>QR 코드 생성기</title>
             <meta charSet="utf-8"/>
-            {/* Google AdSense 계정 태그 */}
             <meta name="google-adsense-account" content="ca-pub-1622427124321210"/>
-            {/* Google Search Console 인증 태그 */}
             <meta name="google-site-verification" content="j9HyeLmKhlQr_-mJHAs1w-WDu7amEDPHJao-SKtgzMw"/>
-            {/* Naver 웹마스터 도구 인증 태그 */}
             <meta name="naver-site-verification" content="48f26a171bfe01539897ff290ece5e8d75cd16ed"/>
 
-            {/* 구글 애널리틱스 스크립트 */}
             <Script
                 strategy="afterInteractive"
                 src="https://www.googletagmanager.com/gtag/js?id=G-DYPWY7ZV1C"
@@ -84,7 +81,6 @@ export default function RootLayout({
                 `}
             </Script>
 
-            {/* 구글 AdSense 스크립트 */}
             <Script
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622427124321210"
@@ -92,8 +88,7 @@ export default function RootLayout({
                 crossOrigin="anonymous"
             />
         </head>
-        <body>
-        {/* 구조화된 데이터 */}
+        <body className="overflow-x-hidden bg-gray-50">
         <Script
             id="schema-org"
             type="application/ld+json"
@@ -122,7 +117,15 @@ export default function RootLayout({
                 }),
             }}
         />
+
+        {/* 사이드바 */}
+        <Sidebar />
+
+        {/* 메인 콘텐츠 */}
+        <main className="md:ml-16 lg:ml-64 transition-all duration-300 min-h-screen">
             {children}
+        </main>
+
         <Analytics/>
         </body>
         </html>

@@ -9,6 +9,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			fontFamily: {
+				'sans': ['BMJUA', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 				'jooa': ['BMJUA', 'sans-serif'],
 				'RiaSans': ['RiaSans', 'sans-serif'],
 				'GongGot': ['GongGothic', 'sans-serif'],

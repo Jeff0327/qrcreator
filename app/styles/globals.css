@@ -115,3 +115,18 @@ body{
   }
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+@media (max-width: 768px) {
+  .scroll-mt-20 {
+    scroll-margin-top: 6rem;
+  }
+}
